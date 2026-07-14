@@ -43,12 +43,14 @@ terraform-aws-webserver/
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
+├── user_data.sh
 ├── terraform.tfvars
 ├── locals.tf
 ├── backend.tf
 ├── .gitignore
 ├── README.md
-├
+├── website/
+│   └── index.html
 ├── Notes/
 ├── modules/
 ├── website/
