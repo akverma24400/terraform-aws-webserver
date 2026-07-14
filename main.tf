@@ -74,15 +74,83 @@ resource "aws_route_table_association" "public" {
 
 }
 
+#updated the aws_instance resource to use the ami_id variable from terraform.tfvars
 
 resource "aws_instance" "web" {
 
   ami           = var.ami_id
   instance_type = var.instance_type
 
-  tags = {
-    Name    = local.instance_name
-    Owner   = var.owner
-    Project = var.project_name
+  subnet_id = aws_subnet.public.id
+  key_name  = var.key_name
+
+  vpc_security_group_ids = [
+    aws_security_group.web.id
+  ]
+
+  associate_public_ip_address = true
+
+  tags = merge(
+    local.common_tags,
+    {
+      Name = local.instance_name
+    }
+  )
+}
+
+#Creating a security group for the EC2 instance
+
+
+resource "aws_security_group" "web" {
+
+  name        = "terraform-web-sg"
+  description = "Allow SSH and HTTP"
+  vpc_id      = aws_vpc.main.id
+
+  ingress {
+
+    description = "SSH"
+
+    from_port = 22
+
+    to_port = 22
+
+    protocol = "tcp"
+
+    cidr_blocks = ["0.0.0.0/0"]
+
   }
+
+  ingress {
+
+    description = "HTTP"
+
+    from_port = 80
+
+    to_port = 80
+
+    protocol = "tcp"
+
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+  egress {
+
+    from_port = 0
+
+    to_port = 0
+
+    protocol = "-1"
+
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+  tags = merge(
+    local.common_tags,
+    {
+      Name = "Terraform-Web-SG"
+    }
+  )
 }
