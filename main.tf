@@ -89,6 +89,7 @@ resource "aws_instance" "web" {
   ]
 
   associate_public_ip_address = true
+  user_data                   = file("${path.module}/user_data.sh") #added user_data.sh file to install docker, Nginx and create a simple HTML page
 
   tags = merge(
     local.common_tags,
@@ -128,6 +129,20 @@ resource "aws_security_group" "web" {
     from_port = 80
 
     to_port = 80
+
+    protocol = "tcp"
+
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+  ingress {
+
+    description = "HTTPS"
+
+    from_port = 443
+
+    to_port = 443
 
     protocol = "tcp"
 

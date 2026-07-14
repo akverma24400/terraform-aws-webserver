@@ -10,6 +10,14 @@ output "public_dns" {
   value = aws_instance.web.public_dns
 }
 
-output "availability_zone" {
-  value = aws_instance.web.availability_zone
+output "vpc_id" {
+  value = aws_vpc.main.id
+}
+
+output "subnet_id" {
+  value = aws_subnet.public.id
+}
+
+output "security_group_id" {
+  value = aws_security_group.web.id
 }
