@@ -97,6 +97,8 @@ terraform-aws-webserver/
 - Deploy EC2 in Custom VPC
 - Install Docker & Nginx
 
+**Status:** ✅ Completed
+
 ---
 
 ## ⏳ Day 04 - Remote State
@@ -157,7 +159,7 @@ terraform destroy
 |------|--------|
 | Day 01 | ✅ Completed |
 | Day 02 | ✅ Completed |
-| Day 03 | ⏳ In Progress |
+| Day 03 | ✅ Completed |
 | Day 04 | ⏳ Pending |
 | Day 05 | ⏳ Pending |
 | Day 06 | ⏳ Pending |
