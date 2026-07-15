@@ -43,6 +43,8 @@ terraform-aws-webserver/
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
+├── backend-resources.tf
+├── backend.tf
 ├── user_data.sh
 ├── terraform.tfvars
 ├── locals.tf
@@ -107,6 +109,7 @@ terraform-aws-webserver/
 - DynamoDB State Locking
 - Remote Terraform State
 
+**Status:** ✅ Completed
 ---
 
 ## ⏳ Day 05 - Terraform Modules
@@ -160,7 +163,7 @@ terraform destroy
 | Day 01 | ✅ Completed |
 | Day 02 | ✅ Completed |
 | Day 03 | ✅ Completed |
-| Day 04 | ⏳ Pending |
+| Day 04 | ✅ Completed |
 | Day 05 | ⏳ Pending |
 | Day 06 | ⏳ Pending |
 | Day 07 | ⏳ Pending |
