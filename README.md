@@ -35,29 +35,36 @@ The project starts with deploying a single EC2 instance and gradually evolves in
 
 # 📂 Project Structure
 
-```text
 terraform-aws-webserver/
+│
+├── modules/
+│   ├── network/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── security/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── ec2/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
 │
 ├── provider.tf
 ├── versions.tf
-├── main.tf
 ├── variables.tf
-├── outputs.tf
-├── backend-resources.tf
-├── backend.tf
-├── user_data.sh
 ├── terraform.tfvars
 ├── locals.tf
-├── backend.tf
-├── .gitignore
-├── README.md
+├── main.tf
+├── outputs.tf
+├── user_data.sh
+├── Dockerfile
 ├── website/
 │   └── index.html
-├── Notes/
-├── modules/
-├── website/
-├── screenshots/
-└── .github/workflows/
+└── README.md
 ```
 
 ---
@@ -89,7 +96,7 @@ terraform-aws-webserver/
 
 ---
 
-## ⏳ Day 03 - AWS Networking
+## ✅ Day 03 - AWS Networking
 
 - Create VPC
 - Public Subnet
@@ -103,7 +110,7 @@ terraform-aws-webserver/
 
 ---
 
-## ⏳ Day 04 - Remote State
+## ✅ Day 04 - Remote State
 
 - S3 Backend
 - DynamoDB State Locking
@@ -112,13 +119,14 @@ terraform-aws-webserver/
 **Status:** ✅ Completed
 ---
 
-## ⏳ Day 05 - Terraform Modules
+## ✅ Day 05 - Terraform Modules
 
 - Create Network Module
 - Create EC2 Module
 - Create Security Module
 - Modular Infrastructure
 
+**Status:** ✅ Completed
 ---
 
 ## ⏳ Day 06 - Best Practices
@@ -164,7 +172,7 @@ terraform destroy
 | Day 02 | ✅ Completed |
 | Day 03 | ✅ Completed |
 | Day 04 | ✅ Completed |
-| Day 05 | ⏳ Pending |
+| Day 05 | ✅ Completed |
 | Day 06 | ⏳ Pending |
 | Day 07 | ⏳ Pending |
 

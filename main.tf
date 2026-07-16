@@ -1,20 +1,43 @@
-resource "aws_vpc" "main" {
+module "network" {
 
-  cidr_block = var.vpc_cidr
+  source = "./modules/network"
 
-  enable_dns_hostnames = true
+  vpc_cidr          = var.vpc_cidr
+  subnet_cidr       = var.public_subnet_cidr
+  availability_zone = var.availability_zone
 
-  enable_dns_support = true
-
-  tags = merge(
-    local.common_tags,
-    {
-      Name = "TerraWeek-VPC"
-    }
-  )
+  project_name = var.project_name
+  owner        = var.owner
 }
 
-resource "aws_subnet" "public" {
+module "security" {
+
+  source = "./modules/security"
+
+  vpc_id = module.network.vpc_id
+
+  project_name = var.project_name
+  owner        = var.owner
+}
+
+module "ec2" {
+
+  source = "./modules/ec2"
+
+  ami_id        = var.ami_id
+  instance_type = var.instance_type
+
+  subnet_id         = module.network.subnet_id
+  security_group_id = module.security.security_group_id
+
+  project_name = var.project_name
+  owner        = var.owner
+}
+
+
+# bellow code is commented out because it is already defined in the modules folder and we are using modules to create the resources.
+
+/* resource "aws_subnet" "public" {
 
   vpc_id = aws_vpc.main.id
 
@@ -30,10 +53,10 @@ resource "aws_subnet" "public" {
       Name = "Public-Subnet"
     }
   )
-}
+} */
 
 
-resource "aws_internet_gateway" "igw" {
+/* resource "aws_internet_gateway" "igw" {
 
   vpc_id = aws_vpc.main.id
 
@@ -44,9 +67,9 @@ resource "aws_internet_gateway" "igw" {
     }
   )
 }
+ */
 
-
-resource "aws_route_table" "public" {
+/* resource "aws_route_table" "public" {
 
   vpc_id = aws_vpc.main.id
 
@@ -64,28 +87,28 @@ resource "aws_route_table" "public" {
       Name = "Public-RouteTable"
     }
   )
-}
+} */
 
-resource "aws_route_table_association" "public" {
+/* resource "aws_route_table_association" "public" {
 
   subnet_id = aws_subnet.public.id
 
   route_table_id = aws_route_table.public.id
 
-}
+} */
 
 #updated the aws_instance resource to use the ami_id variable from terraform.tfvars
 
-resource "aws_instance" "web" {
+/* resource "aws_instance" "web" {
 
   ami           = var.ami_id
   instance_type = var.instance_type
 
-  subnet_id = aws_subnet.public.id
+  subnet_id = module.network.subnet_id
   key_name  = var.key_name
 
   vpc_security_group_ids = [
-    aws_security_group.web.id
+  module.security.security_group_id
   ]
 
   associate_public_ip_address = true
@@ -97,16 +120,16 @@ resource "aws_instance" "web" {
       Name = local.instance_name
     }
   )
-}
+} */
 
 #Creating a security group for the EC2 instance
 
 
-resource "aws_security_group" "web" {
+/* resource "aws_security_group" "web" {
 
   name        = "terraform-web-sg"
   description = "Allow SSH and HTTP"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = module.network.vpc_id
 
   ingress {
 
@@ -168,4 +191,4 @@ resource "aws_security_group" "web" {
       Name = "Terraform-Web-SG"
     }
   )
-}
+} */
