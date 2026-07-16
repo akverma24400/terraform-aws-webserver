@@ -35,6 +35,7 @@ The project starts with deploying a single EC2 instance and gradually evolves in
 
 # 📂 Project Structure
 
+```
 terraform-aws-webserver/
 │
 ├── modules/
