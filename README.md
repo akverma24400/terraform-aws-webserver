@@ -55,6 +55,7 @@ terraform-aws-webserver/
 │       └── outputs.tf
 │
 ├── provider.tf
+├── data.tf
 ├── versions.tf
 ├── variables.tf
 ├── terraform.tfvars
@@ -130,13 +131,15 @@ terraform-aws-webserver/
 **Status:** ✅ Completed
 ---
 
-## ⏳ Day 06 - Best Practices
+## ✅ Day 06 - Best Practices
 
 - Provider Versioning
 - GitHub Actions CI
 - terraform fmt
 - terraform validate
 - terraform plan
+
+**Status:** ✅ Completed
 
 ---
 
@@ -174,7 +177,7 @@ terraform destroy
 | Day 03 | ✅ Completed |
 | Day 04 | ✅ Completed |
 | Day 05 | ✅ Completed |
-| Day 06 | ⏳ Pending |
+| Day 06 | ✅ Completed |
 | Day 07 | ⏳ Pending |
 
 ---
