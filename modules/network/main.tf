@@ -4,11 +4,12 @@ resource "aws_vpc" "main" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-  tags = {
-    Name    = "${var.project_name}-VPC"
-    Owner   = var.owner
-    Project = var.project_name
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${var.project_name}-VPC"
+    }
+  )
 }
 
 resource "aws_subnet" "public" {
@@ -18,22 +19,24 @@ resource "aws_subnet" "public" {
   availability_zone       = var.availability_zone
   map_public_ip_on_launch = true
 
-  tags = {
-    Name    = "${var.project_name}-Public-Subnet"
-    Owner   = var.owner
-    Project = var.project_name
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${var.project_name}-Public-Subnet"
+    }
+  )
 }
 
 resource "aws_internet_gateway" "igw" {
 
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name    = "${var.project_name}-IGW"
-    Owner   = var.owner
-    Project = var.project_name
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${var.project_name}-IGW"
+    }
+  )
 }
 
 resource "aws_route_table" "public" {
@@ -45,11 +48,12 @@ resource "aws_route_table" "public" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
-  tags = {
-    Name    = "${var.project_name}-RouteTable"
-    Owner   = var.owner
-    Project = var.project_name
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${var.project_name}-RouteTable"
+    }
+  )
 }
 
 resource "aws_route_table_association" "public" {

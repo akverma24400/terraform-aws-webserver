@@ -22,10 +22,10 @@ variable "instance_type" {
   }
 }
 
-variable "ami_id" {
+/* variable "ami_id" {
   description = "Ubuntu AMI ID"
   type        = string
-}
+} */
 
 variable "project_name" {
   description = "Project Name"
@@ -61,5 +61,10 @@ variable "availability_zone" {
 
 variable "key_name" {
   description = "AWS Key Pair Name"
+  type        = string
+}
+
+variable "private_key_path" {
+  description = "Private SSH key path"
   type        = string
 }

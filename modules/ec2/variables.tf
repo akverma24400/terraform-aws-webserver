@@ -18,6 +18,20 @@ variable "project_name" {
   type = string
 }
 
+variable "key_name" {
+  description = "AWS Key Pair Name"
+  type        = string
+}
+
 variable "owner" {
   type = string
+}
+variable "private_key_path" {
+  description = "Path to the private SSH key"
+  type        = string
+}
+
+variable "common_tags" {
+  description = "Common tags"
+  type        = map(string)
 }

@@ -12,3 +12,7 @@ variable "owner" {
   description = "Owner Name"
   type        = string
 }
+variable "common_tags" {
+  description = "Common tags"
+  type        = map(string)
+}

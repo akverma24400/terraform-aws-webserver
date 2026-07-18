@@ -8,6 +8,7 @@ module "network" {
 
   project_name = var.project_name
   owner        = var.owner
+  common_tags  = local.common_tags
 }
 
 module "security" {
@@ -18,22 +19,24 @@ module "security" {
 
   project_name = var.project_name
   owner        = var.owner
+  common_tags  = local.common_tags
 }
 
 module "ec2" {
 
   source = "./modules/ec2"
 
-  ami_id        = var.ami_id
-  instance_type = var.instance_type
-
+  ami_id            = data.aws_ami.ubuntu.id
+  instance_type     = var.instance_type
   subnet_id         = module.network.subnet_id
   security_group_id = module.security.security_group_id
+  key_name          = var.key_name
+  private_key_path  = var.private_key_path
 
   project_name = var.project_name
   owner        = var.owner
+  common_tags  = local.common_tags
 }
-
 
 # bellow code is commented out because it is already defined in the modules folder and we are using modules to create the resources.
 

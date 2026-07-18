@@ -35,9 +35,10 @@ resource "aws_security_group" "web" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name    = "${var.project_name}-SecurityGroup"
-    Owner   = var.owner
-    Project = var.project_name
-  }
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${var.project_name}-SecurityGroup"
+    }
+  )
 }
