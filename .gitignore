@@ -21,6 +21,3 @@ override.tf.json
 
 # Windows
 Thumbs.db
-
-terraweek_key.pub
-terraweek_key
