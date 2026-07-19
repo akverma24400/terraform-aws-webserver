@@ -2,9 +2,11 @@
 
 <div align="center">
 
-![Terraform](https://img.shields.io/badge/Terraform-v1.5+-623CE4?style=for-the-badge&logo=terraform)
+![Terraform](https://img.shields.io/badge/Terraform-1.13+-623CE4?style=for-the-badge&logo=terraform)
 ![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?style=for-the-badge&logo=amazonaws)
-![Challenge](https://img.shields.io/badge/TrainWithShubham-TerraWeek-blue?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Container-2496ED?style=for-the-badge&logo=docker)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 ### 🌍 Building Production-Ready AWS Infrastructure using Terraform
 
