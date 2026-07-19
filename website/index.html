@@ -1,45 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>TerraWeek Challenge - Day 05</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraWeek - Day 07</title>
 
     <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
 
         body{
-            background:#0d1117;
+            background:linear-gradient(135deg,#0f172a,#1e293b);
             color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
             text-align:center;
-            font-family:Arial;
-            margin-top:120px;
+        }
+
+        .container{
+            background:rgba(255,255,255,0.08);
+            backdrop-filter:blur(10px);
+            padding:40px;
+            border-radius:15px;
+            width:90%;
+            max-width:700px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.4);
         }
 
         h1{
-            color:#00ff99;
+            font-size:42px;
+            color:#38bdf8;
+            margin-bottom:15px;
         }
 
         h2{
-            color:#58a6ff;
+            font-size:24px;
+            margin-bottom:20px;
+            color:#f8fafc;
         }
 
+        p{
+            font-size:18px;
+            line-height:1.7;
+            color:#cbd5e1;
+            margin-bottom:25px;
+        }
+
+        .badge{
+            display:inline-block;
+            background:#38bdf8;
+            color:#0f172a;
+            padding:10px 22px;
+            border-radius:30px;
+            font-weight:bold;
+        }
+
+        footer{
+            margin-top:30px;
+            color:#94a3b8;
+            font-size:14px;
+        }
     </style>
-
 </head>
-
 <body>
 
-<h1>Terraform TerraWeek Challenge</h1>
+    <div class="container">
+        <h1>🚀 TerraWeek</h1>
+        <h2>Day 07 - Static Website Deployment</h2>
 
-<h2>Day 05 Completed Successfully ✅</h2>
+        <p>
+            This website is successfully hosted using
+            <strong>Nginx</strong> inside a
+            <strong>Docker Container</strong>.
+        </p>
 
-<p>Custom VPC</p>
+        <span class="badge">
+            ✅ Deployment Successful
+        </span>
 
-<p>Docker Installed</p>
-
-<p>Nginx Running</p>
-
-<p>Infrastructure as Code with Terraform</p>
-
-<h3>Created by Akash Verma</h3>
+        <footer>
+            <p>Created by <strong>Akash Verma</strong></p>
+        </footer>
+    </div>
 
 </body>
 </html>
