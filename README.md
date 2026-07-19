@@ -41,34 +41,44 @@ The project starts with deploying a single EC2 instance and gradually evolves in
 terraform-aws-webserver/
 │
 ├── modules/
+│   ├── ec2/
 │   ├── network/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   └── outputs.tf
-│   │
-│   ├── security/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   └── outputs.tf
-│   │
-│   └── ec2/
-│       ├── main.tf
-│       ├── variables.tf
-│       └── outputs.tf
+│   └── security/
 │
-├── provider.tf
+├── website/
+│   ├── index.html
+│   ├── style.css
+│   └── images/
+│
+├── Notes/
+│   ├── Day01.md
+│   ├── Day02.md
+│   ├── Day03.md
+│   ├── Day04.md
+│   ├── Day05.md
+│   ├── Day06.md
+│   └── Day07.md
+│
+├── Screenshots/
+│   ├── Day01/
+│   ├── Day02/
+│   ├── Day03/
+│   ├── Day04/
+│   ├── Day05/
+│   ├── Day06/
+│   └── Day07/
+│
 ├── data.tf
-├── versions.tf
-├── variables.tf
-├── terraform.tfvars
 ├── locals.tf
 ├── main.tf
 ├── outputs.tf
-├── user_data.sh
+├── provider.tf
+├── terraform.tfvars
+├── variables.tf
 ├── Dockerfile
-├── website/
-│   └── index.html
-└── README.md
+├── user_data.sh
+├── README.md
+└── LICENSE
 ```
 
 ---
@@ -145,7 +155,7 @@ terraform-aws-webserver/
 
 ---
 
-## ⏳ Day 07 - Final Project
+## ✅ Day 07 - Final Project
 
 - Production-ready Infrastructure
 - Architecture Diagram
@@ -153,6 +163,8 @@ terraform-aws-webserver/
 - Screenshots
 - Final GitHub Cleanup
 - LinkedIn & Challenge Submission
+
+**Status:** ✅ Completed
 
 ---
 
@@ -180,7 +192,7 @@ terraform destroy
 | Day 04 | ✅ Completed |
 | Day 05 | ✅ Completed |
 | Day 06 | ✅ Completed |
-| Day 07 | ⏳ Pending |
+| Day 07 | ✅ Completed |
 
 ---
 
